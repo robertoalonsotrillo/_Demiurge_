@@ -34,7 +34,7 @@ and [direnv](https://direnv.net/).
 
 The audio generation and sequencing GAN-based processes work as follows:
 
-1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wavs), compiled into a new database `RAW GENERATED AUDIO DB`. 
+1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wav), compiled into a new database `RAW GENERATED AUDIO DB`. 
 
 2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` and the sequencer, which is the time series prediction model in the current repository, generates projected descriptor sequences based on that data. 
 
