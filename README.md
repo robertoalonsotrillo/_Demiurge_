@@ -56,7 +56,9 @@ The chart below explains the GAN-based sound generation process
 
 ### unaGAN
 
-These are the training notebooks for [melgan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/melgan.ipynb)/[unagan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/unagan.ipynb) training, please use notebooks in the folder [train_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/train_notebook).
+The **[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at the Academia Sinica(https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. 
+
+
 The audio database for the melgan and unagan should be the same, and please record wandb run id of the run for sound generation.
 
 After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
