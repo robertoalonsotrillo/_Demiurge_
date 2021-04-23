@@ -44,7 +44,7 @@ Please bear in mind that our model uses [WANDB](https://wandb.ai/) to track and 
 
 ## SOUND GENERATION (melGAN + unaGAN)
 
-The chart below explains the GAN-based sound generation process. Please bear in mind that for ideal results the melGAN and unGAN audio databases should be the same. Cross-feeding between different databases generates unpredictable results. Please record the wandb run ids for the final sound generation process. 
+The chart below explains the GAN-based sound generation process. Please bear in mind that for ideal results the melGAN and unGAN audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the wandb run ids for the final sound generation process. 
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
