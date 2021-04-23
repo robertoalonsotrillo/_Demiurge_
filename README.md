@@ -46,7 +46,7 @@ The audio generation and sequencing GAN-based processes work as follows:
 The melgan and unagan is used to generate a lot more audio files that are similar to the files in the RECORDED AUDIO DB. This is optional if the RECORDED AUDIO DB is already large enough for the descriptor matching process in the query function.
 
 
-![melgan/unagan workflow](https://github.com/buganart/descriptor-transformer/blob/main/_static/img/Demiurge.png)
+![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
 For the [melgan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/melgan.ipynb)/[unagan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/unagan.ipynb) training, please use notebooks in the folder [train_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/train_notebook).
 The audio database for the melgan and unagan should be the same, and please record wandb run id of the run for sound generation.
@@ -92,14 +92,3 @@ The [prediction notebook](https://github.com/buganart/descriptor-transformer/blo
 
 Follow the instruction in the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb) to generate new descriptor and convert them back to audio.
 
-## Optional: melgan and unagan
-
-The melgan and unagan is used to generate a lot more audio files that are similar to the files in the RECORDED AUDIO DB. This is optional if the RECORDED AUDIO DB is already large enough for the descriptor matching process in the query function.
-
-
-![melgan/unagan workflow](https://github.com/buganart/descriptor-transformer/blob/main/_static/img/sound_generation_process.png)
-
-For the [melgan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/melgan.ipynb)/[unagan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/unagan.ipynb) training, please use notebooks in the folder [train_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/train_notebook).
-The audio database for the melgan and unagan should be the same, and please record wandb run id of the run for sound generation.
-
-After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
