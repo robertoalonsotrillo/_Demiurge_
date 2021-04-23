@@ -44,7 +44,7 @@ Please bear in mind that our model uses [WANDB](https://wandb.ai/) to track and 
 
 ## SOUND GENERATION (melGAN + unaGAN)
 
-The chart below explains the GAN-based sound generation process. 
+The chart below explains the GAN-based sound generation process. Please bear in mind that for ideal results the melGAN and unGAN audio databases should be the same. Cross-feeding between different databases generates unpredictable results.Please record the wandb run ids for the final sound generation process. 
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
@@ -53,14 +53,11 @@ The chart below explains the GAN-based sound generation process.
 **[MELGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results.The results obtained using a multi-GPU approach with parallel data vary. You may track our training through 
 
 
-
-
 ### unaGAN
 
 **[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. 
 
-
-The audio database for the melgan and unagan should be the same, and please record wandb run id of the run for sound generation.
+### Sound generator
 
 After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
 
