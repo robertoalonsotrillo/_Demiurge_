@@ -38,7 +38,7 @@ The audio generation and sequencing GAN-based processes work as follows:
 
 2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` and the sequencer, which is the time series prediction model in the current repository, generates projected descriptor sequences based on that data. 
 
-3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the audio reference taken from the the `RAW GENERATED AUDIO DB` of the matched extracted descriptors with that of the predicted descriptors, merging and combining it into an output prediction audio file (.wav).
+3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the macthed with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output prediction audio file (.wav).
 
 
 ## Training (SEQUENCER GAN)
