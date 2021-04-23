@@ -61,7 +61,9 @@ The audio database for the melgan and unagan should be the same, and please reco
 
 After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
 
-## Training (SEQUENCER GAN)
+## GAN SEQUENCER
+
+### Descriptor Model
 
 From the descripton above, descriptor model(SEQUENCER GAN) is necessary for the prediction workflow. User can use one of the pretrained descriptor model with the wandb run id in the [prediction notebook](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), or train their own model with the instruction in the training section below.
 
@@ -70,13 +72,13 @@ The "LSTM" and "TransformerEncoderOnlyModel" are one step prediction model, whil
 
 After training the model, record the wandb run id and paste it in the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the RAW generated audio DB and Prediction DB, and run the notebook. The notebook will generate new descriptors from the descriptor model and convert them back into audio.
 
-### Training (notebook)
+#### Training (notebook)
 
 The [training notebook](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/descriptor_model_train.ipynb) for the descriptor model is located in the folder [train_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/train_notebook).
 
 Follow the instruction in the [training notebook](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/descriptor_model_train.ipynb) to train the descriptor model.
 
-### Training (script)
+#### Training (script)
 
 To train the descriptor model, run
 
@@ -85,7 +87,7 @@ To train the descriptor model, run
 The audio database shoulf be audio file in ".wav"
 
 
-## Prediction
+### Prediction Model
 
 The prediction workflow can be described in the diagram below:
 
