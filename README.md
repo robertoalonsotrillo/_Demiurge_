@@ -43,11 +43,17 @@ The audio generation and sequencing GAN-based processes work as follows:
 
 ## Sound generation (melGAN + unaGAN)
 
-The chart below explains the GAN-based sound generating process
+The chart below explains the GAN-based sound generation process
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
 ### melGAN
+
+**[MELGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. 
+
+
+
+
 
 ### unaGAN
 
