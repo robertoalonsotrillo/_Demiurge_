@@ -36,10 +36,22 @@ The audio generation and sequencing GAN-based processes work as follows:
 
 1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wav), compiled into a new database `RAW GENERATED AUDIO DB`. 
 
-2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` and the sequencer, which is the time series prediction model in the current repository, generates projected descriptor sequences based on that data. 
+2. The **[GAN SEQUENCER](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` and the sequencer, which is the time series prediction model in the current repository, generates projected descriptor sequences based on that data. 
 
 3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the macthed with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output prediction audio file (.wav).
 
+
+## Sound generation (melGAN + unaGAN)
+
+The melgan and unagan is used to generate a lot more audio files that are similar to the files in the RECORDED AUDIO DB. This is optional if the RECORDED AUDIO DB is already large enough for the descriptor matching process in the query function.
+
+
+![melgan/unagan workflow](https://github.com/buganart/descriptor-transformer/blob/main/_static/img/sound_generation_process.png)
+
+For the [melgan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/melgan.ipynb)/[unagan](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/unagan.ipynb) training, please use notebooks in the folder [train_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/train_notebook).
+The audio database for the melgan and unagan should be the same, and please record wandb run id of the run for sound generation.
+
+After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
 
 ## Training (SEQUENCER GAN)
 
