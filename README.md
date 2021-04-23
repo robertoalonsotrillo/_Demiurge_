@@ -43,7 +43,7 @@ The audio generation and sequencing GAN-based processes work as follows:
 
 ## Sound generation (melGAN + unaGAN)
 
-The chart below explains the GAN-based sound generation process
+The chart below explains the GAN-based sound generation process. Please bear in mind that our model uses [wandb](https://wandb.ai/) totrack and monitor training.
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
