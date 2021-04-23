@@ -35,8 +35,8 @@ and [direnv](https://direnv.net/).
 The audio generation and sequencing GAN-based processes work as follows:
 
 1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** and **[UNAGAN](https://github.com/buganart/unagan)** will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wavs) that will be compiled into a new database `RAW GENERATED AUDIO DB`. 
-2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `RECORDED AUDIO DB` and the sequencer, which is the time series prediction model in the current repository, predicts projected descriptor sequences based on the input data generated earlier. 
-3. As the predicted descriptors are just statistical values that need to be converted back to audio, we will match the predicted descriptors from the model with the extracted descriptors from the wav files in the RAW GENERATED AUDIO DB. Then, the audio reference in the RAW GENERATED AUDIO DB of the matched extracted descriptors will replace the predicted descriptors, and will be merged and combined into output prediction audio file.
+2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `RAW GENERATED AUDIO DB` and the sequencer, which is the time series prediction model in the current repository, predicts projected descriptor sequences based on that data. 
+3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors from the model with those extracted from a new database `PREDICTOR DB`. Then, the audio reference in the RAW GENERATED AUDIO DB of the matched extracted descriptors will replace the predicted descriptors, and will be merged and combined into output prediction audio file.
 
 
 ## Training (SEQUENCER GAN)
