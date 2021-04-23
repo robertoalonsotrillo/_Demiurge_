@@ -34,7 +34,7 @@ and [direnv](https://direnv.net/).
 
 The audio generation and sequencing GAN-based processes work as follows:
 
-1. The audio files will first be processed by [melgan](https://github.com/descriptinc/melgan-neurips) and [unagan](https://github.com/ciaua/unagan) to generate a lot more audio files similar to the audio files to form the RAW GENERATED AUDIO DB, which will be the audio source of the output prediction audio file as we assume the audio following the input and the input audio should be similar. 
+1. [melgan](https://github.com/descriptinc/melgan-neurips) and [unagan](https://github.com/ciaua/unagan)will first process the audio files from a first database [recorded audio database] to produce GAN-generated that will be compiled in the RAW GENERATED AUDIO DB, which will be the audio source of the output prediction audio file as we assume the audio following the input and the input audio should be similar. 
 2. The audio in the RECORDED AUDIO DB will be processed into descriptors such as MFCCs, and the SEQUENCER GAN, which is the time series prediction model in this repository, will predict upcoming descriptors based on the input audio descriptors. 
 3. As the predicted descriptors are just statistical values and cannot be easily converted back to audio, we will match the predicted descriptors from the model with the extracted descriptors from the wav files in the RAW GENERATED AUDIO DB. Then, the audio reference in the RAW GENERATED AUDIO DB of the matched extracted descriptors will replace the predicted descriptors, and will be merged and combined into output prediction audio file.
 
