@@ -34,11 +34,11 @@ and [direnv](https://direnv.net/).
 
 The audio generation and sequencing GAN-based processes work as follows:
 
-1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wavs) that will be compiled into a new database `RAW GENERATED AUDIO DB`. 
+1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wavs), compiled into a new database `RAW GENERATED AUDIO DB`. 
 
 2. The **[DESCRIPTOR MODEL](https://github.com/buganart/descriptor-transformer)** extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` and the sequencer, which is the time series prediction model in the current repository, generates projected descriptor sequences based on that data. 
 
-3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The audio reference in the `RAW GENERATED AUDIO DB` of the matched extracted descriptors is then replaced with the predicted descriptors, and will be merged and combined into output prediction audio file.
+3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The audio reference taken from the the `RAW GENERATED AUDIO DB` of the matched extracted descriptors is then replaced with the predicted descriptors and merged and combined into an output prediction audio file (.wav).
 
 
 ## Training (SEQUENCER GAN)
