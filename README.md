@@ -62,7 +62,7 @@ The chart below explains the GAN-based sound generation process. Please bear in 
 
 After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
 
-## GAN SEQUENCER
+## TRANSFORMER
 
 ### Descriptor Model
 
