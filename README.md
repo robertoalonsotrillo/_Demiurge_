@@ -97,9 +97,9 @@ You may alternatively train the descriptor model using a database containing fil
     python desc/train_function.py --selected_model <1 of 4 models above> --audio_db_dir <path to database> --window_size <input sequence length> --forecast_size <output sequence length> 
 
 
-### 2. Query and Playback engines
+### 2. Query and playback engines
 
-This is the workflow of the query and playback engines, which will translate `MFCC` `.json` files into `.wav` audio files. This workflow partially overlaps with the instructions provided above on the **descriptor predictor model**.  
+This is the workflow of the **query and playback engines**, which will translate `MFCC` `.json` files into `.wav` audio files. This workflow partially overlaps with the instructions provided above on the **descriptor predictor model**.  
 
 1. The **descriptor model** processes the `PREDICTION DB` databse (see diagram above) to generate *descriptor input sequences* and saves them in `DESCRIPTOR DB II`. It then predicts subsequent descriptor strings based on that data.
 
