@@ -101,7 +101,7 @@ You may alternatively train the descriptor model using a database containing fil
 
 This is the workflow of the query and playback engines, which will translate `MFCC` `.json` files into `.wav` audio files: 
 
-1. The prediction database will be processed into *descriptor input sequences* saved in `descriptor database II` and the **descriptor model** will predict subsequent descriptor strings based on that data.
+1. The prediction database will be processed into *descriptor input sequences* and saved in `descriptor database II`. The **descriptor model** will then predict subsequent descriptor strings based on that data.
 
 2. The audio database will be processed into `descriptor database I` and each descriptor will have an `ID reference` linking it back to the specific audio segment.
  
