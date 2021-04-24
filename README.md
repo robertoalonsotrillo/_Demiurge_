@@ -41,7 +41,7 @@ Audio generation and sequencing neural-network-based processes work as follows:
 
 2. The **descriptor model** in the **[neural sequencer](https://github.com/buganart/descriptor-transformer)** extracts a series of Los Mel Frequency Cepstral Coeﬃcients `MFCC` strings `.json` from the audio files in the `PREDICTOR DB` while the **predictor**, a time-series prediction model, generates projected descriptor sequences based on that data. 
 
-3. As the predicted descriptors are just statistical values and need to be converted back to audio, a **query engine** matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the matched with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output `.wav` audio file.
+3. As the predicted descriptors are just statistical values and need to be converted back to audio, a **query engine** matches the predicted descriptors based on the `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the matched with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output `.wav` audio file.
 
 Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track and monitor training.
 
@@ -79,16 +79,16 @@ The **Neural sequencer** combines an `MFCC` descriptor extraction model with a d
 
 ### 1. Descriptor Prediction Model
 
-As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. 
+As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there to generate `MFCC` `.json` files.
 
-Four different time-series predictors were implemented as training options: 
+Four different time-series predictors were implemented as training option. Both the "LSTM" and "transformer encoder-only model" are one step prediction models, while "LSTM encoder-decoder model" and "transformer model" can predict descriptor sequences with specified sequence length: 
 
 - **LSTM** (Hochreiter et al. 1997)
 - **LSTM encoder-decoder model** (Cho et al. 2014)
 - **Transformer encoder-only model**
 -  **Transformer model** (Vaswani et al. 2017)
 
-Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequences with specified sequence length. Once you train the model, record the `wandb_run_id` and paste it on the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the `RAW generated audio DB` and `Prediction DB`, and run the notebook. The notebook will generate new descriptors using the descriptor model and convert them back into `.wav` audio files.
+Once you train the model, record the `wandb_run_id` and paste it in the **[prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)**. Then, provide paths to the `RAW generated audio DB` and `Prediction DB` databases, and run the notebook to generate new descriptors and convert them back into `.wav` audio files using the **query and playback engines**(see below)
 
 #### Training (script alternative)
 
@@ -99,7 +99,7 @@ You may alternatively train the descriptor model using a database containing fil
 
 ### 2. Query and Playback engines
 
-The query and playback engines follow the following process: 
+This is the workflow of the query and playback engines, which will translate: 
 
 1. The prediction database will be processed into **descriptor input (descriptor database II)** for the descriptor model, and the descriptor model will *predict the subsequent descriptors* based on the input.
 2. The audio database will be processed into **descriptor database I** that each descriptor will have *ID reference* back to the audio segment. 
