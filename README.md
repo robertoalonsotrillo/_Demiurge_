@@ -49,13 +49,17 @@ Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track 
 
 The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **melGAN** and **UNAGAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
-![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
+<p align="center">
+    <img src="https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png" width="70%" height="30%" align="center">
+</p>
 
 ### 1. melGAN
 
 **[melGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
 
-<img width="957" alt="melgan" src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png">
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png" width="70%" height="30%" align="center">
+</p>
 
 ### 2. UNAGAN
 
@@ -69,8 +73,9 @@ After training **melGAN** and **UNAGAN**, you will have to use **[UNAGAN generat
 
 The **Neural sequencer** combines an `MFCC` descriptor extraction model with a descriptor predictor generator and a query and playback engine that generates `.wav` audio files. The diagram below explains the relation between the different elements of the prediction workflow.
 
-![Demiurge1](https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png)
-
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png" width="70%" height="30%" align="center">
+</p>
 
 ### 1. Descriptor Model
 
