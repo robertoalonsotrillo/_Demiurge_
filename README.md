@@ -64,7 +64,7 @@ After training **melGAN** and **UNAGAN**, you will have to use **[UNAGAN generat
 
 ## NEURAL SEQUENCER
 
-The **Neural sequencer** combines an `MFCC` descriptor extraction model with a descriptor prediction generator and a query and playback engine that generates `.wav` audio files. The diagram below sho
+The **Neural sequencer** combines an `MFCC` descriptor extraction model with a descriptor prediction generator and a query and playback engine that generates `.wav` audio files. The diagram below explains the relation between the different elements of the prediction workflow.
 
 ![Demiurge1](https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png)
 
@@ -90,9 +90,6 @@ The audio database should only contain files in `.wav` format.
 
 
 ### 2. Prediction Model
-
-The prediction workflow can be described in the diagram below:
-![Demiurge1](https://user-images.githubusercontent.com/68105693/115944060-3f844b00-a4e6-11eb-8ba8-9c6c7f63f61c.png)
 
 1. The prediction database will be processed into **descriptor input (descriptor database II)** for the descriptor model, and the descriptor model will *predict the subsequent descriptors* based on the input.
 2. The audio database will be processed into **descriptor database I** that each descriptor will have *ID reference* back to the audio segment. 
