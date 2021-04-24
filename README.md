@@ -60,7 +60,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ### Sound generator
 
-After training **melGAN** and **UNAGAN**, you will have to use the **[SOUND GENERATOR](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to ouput audio files `.wav`. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook.
+After training **melGAN** and **UNAGAN**, you will have to use the **[SOUND GENERATOR](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to ouput `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook.
 
 ## NEURAL SEQUENCER
 
