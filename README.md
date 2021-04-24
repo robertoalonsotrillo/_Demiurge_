@@ -69,9 +69,9 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 After training **melGAN** and **UNAGAN**, you will have to use **[UNAGAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb)
 
-## NEURAL SEQUENCER
+## SEQUENCER MODEL
 
-The **Neural sequencer** combines an `MFCC` descriptor extraction model with a descriptor predictor generator and query and playback engines that generate `.wav` audio files out of those `MFCC` `.json` files. The diagram below explains the relation between the different elements of the prediction-transformer-query-playback workflow.
+The **sequencer model** combines an `MFCC` descriptor extraction model with a descriptor predictor generator and query and playback engines that generate `.wav` audio files out of those `MFCC` `.json` files. The diagram below explains the relation between the different elements of the prediction-transformer-query-playback workflow.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png" width="60%" height="35%" align="center">
