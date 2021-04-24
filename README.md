@@ -79,7 +79,9 @@ The **Neural sequencer** combines an `MFCC` descriptor extraction model with a d
 
 ### 1. Descriptor Prediction Model
 
-As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. Four different time-series predictors were implemented as training options: 
+As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. 
+
+Four different time-series predictors were implemented as training options: 
 
 - **LSTM** (Hochreiter et al. 1997)
 - **LSTM encoder-decoder model** (Cho et al. 2014)
@@ -90,12 +92,14 @@ Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models
 
 #### Training (script alternative)
 
-You may train the descriptor model using a database containing files in `.wav` format by running
+You may alternatively train the descriptor model using a database containing files in `.wav` format by running
 
     python desc/train_function.py --selected_model <1 of 4 models above> --audio_db_dir <path to database> --window_size <input sequence length> --forecast_size <output sequence length> 
 
 
 ### 2. Query and Playback engines
+
+The query and playback engines follow the following process: 
 
 1. The prediction database will be processed into **descriptor input (descriptor database II)** for the descriptor model, and the descriptor model will *predict the subsequent descriptors* based on the input.
 2. The audio database will be processed into **descriptor database I** that each descriptor will have *ID reference* back to the audio segment. 
