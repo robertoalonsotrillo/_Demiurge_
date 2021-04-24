@@ -92,7 +92,7 @@ The audio database shoulf be audio file in ".wav"
 
 The prediction workflow can be described in the diagram below:
 
-![descriptor workflow](https://github.com/buganart/descriptor-transformer/blob/main/_static/img/descriptor_model_predict_workflow.png)
+![Demiurge1](https://user-images.githubusercontent.com/68105693/115944060-3f844b00-a4e6-11eb-8ba8-9c6c7f63f61c.png)
 
 1. The prediction database will be processed into **descriptor input (descriptor database II)** for the descriptor model, and the descriptor model will *predict the subsequent descriptors* based on the input.
 2. The audio database will be processed into **descriptor database I** that each descriptor will have *ID reference* back to the audio segment. 
