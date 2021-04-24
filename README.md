@@ -73,7 +73,7 @@ As outlined above, the **descriptor model** plays a crucial role in the the pred
 - **Transformer encoder-only model**
 -  **Transformer model** (Vaswani et al. 2017)
 
-Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequences with specified sequence length. Once you train the model, record the `wandb_run_id` and paste it on the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the `RAW generated audio DB` and `Prediction DB`, and run the notebook. The notebook will generate new descriptors using the descriptor model and convert them back into audio.
+Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequences with specified sequence length. Once you train the model, record the `wandb_run_id` and paste it on the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the `RAW generated audio DB` and `Prediction DB`, and run the notebook. The notebook will generate new descriptors using the descriptor model and convert them back into `.wav` audio files.
 
 #### Training (script alternative)
 
