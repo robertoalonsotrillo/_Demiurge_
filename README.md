@@ -40,7 +40,7 @@ The audio generation and sequencing neural-network-based processes work as follo
 
 3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the macthed with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output prediction audio file (.wav).
 
-Please bear in mind that our model uses [WANDB](https://wandb.ai/) to track and monitor training.
+Please bear in mind that our model uses **[WANDB](https://wandb.ai/)** to track and monitor training.
 
 ## SYNTHESIS ENGINE (melGAN + unaGAN)
 
