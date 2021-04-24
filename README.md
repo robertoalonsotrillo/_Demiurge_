@@ -101,9 +101,12 @@ You may alternatively train the descriptor model using a database containing fil
 
 This is the workflow of the query and playback engines, which will translate `MFCC` `.json` files into `.wav` audio files: 
 
-1. The prediction database will be processed into *descriptor input sequences* `descriptor database II` and the **descriptor model** will predict subsequent descriptor strings based on that data
-2. The audio database will be processed into `descriptor database I` and each descriptor will have an `ID reference` linking it back to the specific audio segment. 
+1. The prediction database will be processed into *descriptor input sequences* saved in `descriptor database II` and the **descriptor model** will predict subsequent descriptor strings based on that data.
+
+2. The audio database will be processed into `descriptor database I` and each descriptor will have an `ID reference` linking it back to the specific audio segment.
+ 
 3. The **query function** will replace the predicted new descriptors from the descriptor model with the closest match in the `descriptor database I` based on the distance function.
+
 4. The audio segments referenced by the replaced descriptors from the query function will be combined and merged into a new audio file.
 
 The [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb) for the descriptor model is located in [predict_notebook/](https://github.com/buganart/descriptor-transformer/tree/main/predict_notebook).
