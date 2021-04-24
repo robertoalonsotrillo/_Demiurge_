@@ -66,7 +66,7 @@ After training **melGAN** and **UNAGAN**, you will have to use the **[UNAGAN gen
 
 ### 1. Descriptor Model
 
-As outlined above the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions indicated there. Four different time-series predictors were implemented as training options: 
+As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. Four different time-series predictors were implemented as training options: 
 
 - **LSTM** (Hochreiter et al. 1997)
 - **LSTMEncoderDecoderModel** (Cho et al. 2014)
