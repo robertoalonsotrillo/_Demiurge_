@@ -90,11 +90,9 @@ Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models
 
 #### Training (script alternative)
 
-To train the descriptor model, run
+You may train the descriptor model using a database containing files in `.wav` format by running
 
-    python desc/train_function.py --selected_model <1 of 4 models above> --audio_db_dir <path to database> --window_size <input sequence length> --forecast_size <output sequence length>
-
-The audio database should only contain files in `.wav` format. 
+    python desc/train_function.py --selected_model <1 of 4 models above> --audio_db_dir <path to database> --window_size <input sequence length> --forecast_size <output sequence length> 
 
 
 ### 2. Prediction Model
