@@ -81,7 +81,7 @@ The **Neural sequencer** combines an `MFCC` descriptor extraction model with a d
 
 As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there, to generate `MFCC` `.json` files.
 
-Four different time-series predictors were implemented as training option. Both the "LSTM" and "transformer encoder-only model" are one step prediction models, while "LSTM encoder-decoder model" and "transformer model" can predict descriptor sequences with specified sequence length. 
+Four different time-series predictors were implemented as training options. Both the "LSTM" and "transformer encoder-only model" are one step prediction models, while "LSTM encoder-decoder model" and "transformer model" can predict descriptor sequences with specified sequence length. 
 
 - **LSTM** (Hochreiter et al. 1997)
 - **LSTM encoder-decoder model** (Cho et al. 2014)
