@@ -29,7 +29,7 @@ and [direnv](https://direnv.net/).
 3. Type `direnv allow` from within the checkout of this repository. -->
 
 ## INTRODUCTION
-*Demiurge* is a tri-modal neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines a synthesis engine based on a UnaGAN plus MelGAN model combination with a custom neural sequencer. The diagram below explains the relation between the different elements.
+*Demiurge* is a tri-modal neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines a synthesis engine based on a **UNAGAN** plus **MelGAN model** combination with a custom **neural sequencer**. The diagram below explains the relation between the different elements.
 
 ![Demiurge_1](https://user-images.githubusercontent.com/68105693/115943995-d0a6f200-a4e5-11eb-8a22-66212b2c315f.png)
 The audio generation and sequencing neural-network-based processes work as follows:
@@ -44,7 +44,7 @@ Please bear in mind that our model uses **[WANDB](https://wandb.ai/)** to track 
 
 ## SYNTHESIS ENGINE (melGAN + unaGAN)
 
-The chart below explains the GAN-based sound generation process. Please bear in mind that for ideal results the melGAN and unGAN audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the wandb run ids for the final sound generation process. 
+The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **melGAN** and **UNAGAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the wandb run ids for the final sound generation process. 
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
@@ -54,13 +54,13 @@ The chart below explains the GAN-based sound generation process. Please bear in 
 
 <img width="957" alt="melgan" src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png">
 
-### unaGAN
+### UNAGAN
 
 **[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. 
 
 ### Sound generator
 
-After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
+After training **melGAN** and **UNAGAN**, you will have to use the **[SOUND GENERATOR](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to ouput audio files (.wav.). Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output .wav files will be saved to the `output_dir` specified in the notebook.
 
 ## NEURAL SEQUENCER
 
