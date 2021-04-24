@@ -38,7 +38,7 @@ The audio generation and sequencing neural-network-based processes work as follo
 
 2. The **descriptor model** in the **[NEURAL SEQUENCER](https://github.com/buganart/descriptor-transformer)** extracts a series of Los Mel Frequency Cepstral Coeﬃcients `MFCC` descriptor strings `.json` from the audio files in the `PREDICTOR DB` while the **sequencer**, a time series prediction model, generates projected descriptor sequences based on that data. 
 
-3. As the predicted descriptors are just statistical values and need to be converted back to audio, a **query engine** matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. A **playback engine** then replaces the matched with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output audio file `.wav`.
+3. As the predicted descriptors are just statistical values and need to be converted back to audio, a **query engine** matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the matched with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output audio file `.wav`.
 
 Please bear in mind that our model uses **[WANDB](https://wandb.ai/)** to track and monitor training.
 
