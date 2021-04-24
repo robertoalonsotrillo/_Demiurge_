@@ -88,7 +88,7 @@ Four different time-series predictors were implemented as training option. Both 
 - **Transformer encoder-only model**
 -  **Transformer model** (Vaswani et al. 2017)
 
-Once you train the model, record the `wandb_run_id` and paste it in the **[prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)**. Then, provide paths to the `RAW generated audio DB` and `Prediction DB` databases, and run the notebook to generate new descriptors and convert them back into `.wav` audio files using the **query and playback engines** (see below). To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
+Once you train the model, record the `wandb_run_id` and paste it in the **[prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)**. Then, provide paths to the `RAW generated audio DB` and `Prediction DB` databases and and run the notebook to generate new descriptors. The descriptors genereted from `Prediction DB` will be used as the input of the neural sequencer to predict subsequent descriptors, which will be converted into `.wav` audio files using the **query and playback engines** (see below). To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
 
 #### Training (script alternative)
 
