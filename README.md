@@ -31,7 +31,8 @@ and [direnv](https://direnv.net/).
 ## INTRODUCTION
 *Demiurge* is a tripartite neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines a synthesis engine based on a **UNAGAN** + **melGAN** model with a custom **neural sequencer**. The diagram below explains the relation between the different elements.
 
-![Demiurge_1](https://user-images.githubusercontent.com/68105693/115943995-d0a6f200-a4e5-11eb-8a22-66212b2c315f.png)
+<img src="https://user-images.githubusercontent.com/68105693/115943995-d0a6f200-a4e5-11eb-8a22-66212b2c315f.png" width="80%" height="40%">
+
 Audio generation and sequencing neural-network-based processes work as follows:
 
 1. Modified versions of **[melGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
