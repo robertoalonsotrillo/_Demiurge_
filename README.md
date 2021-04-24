@@ -32,11 +32,11 @@ and [direnv](https://direnv.net/).
 *Demiurge* is a tri-modal neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines a synthesis engine based on a UnaGAN plus MelGAN model combination with a custom neural sequencer model. The diagram below explains the relation between the different elements.
 
 ![project concept](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Dataflow.png)
-The audio generation and sequencing GAN-based processes work as follows:
+The audio generation and sequencing neural-network-based processes work as follows:
 
 1. Modified versions of **[MELGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) and **[UNAGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files (.wav) from an original database `RECORDED AUDIO DB` to produce GAN-generated sound files (.wav), compiled into a new database `RAW GENERATED AUDIO DB`. 
 
-2. In the **[TRANSFORMER MODEL](https://github.com/buganart/descriptor-transformer)**, the descriptor model extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` while the sequencer, a time series prediction model, generates projected descriptor sequences based on that data. 
+2. In the **[NEURAL SEQUENCER](https://github.com/buganart/descriptor-transformer)**, the descriptor model extracts a series of MFCC descriptor strings (.json) from the audio files in the `PREDICTOR DB` while the sequencer, a time series prediction model, generates projected descriptor sequences based on that data. 
 
 3. As the predicted descriptors are just statistical values and need to be converted back to audio, a query engine matches the predicted descriptors based on the   `PREDICTOR DB` with those extracted from the `RAW GENERATED AUDIO DB`. The model then replaces the macthed with the predicted descriptors using the audio reference from the `RAW GENERATED AUDIO DB`, merging and combining the resultant sound sequences into an output prediction audio file (.wav).
 
