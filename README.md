@@ -99,7 +99,7 @@ You may alternatively train the descriptor model using a database containing fil
 
 ### 2. Query and Playback engines
 
-This is the workflow of the query and playback engines, which will translate `MFCC` `.json` files into `.wav` audio files: 
+This is the workflow of the query and playback engines, which will translate `MFCC` `.json` files into `.wav` audio files. This workflow partially overlaps with the instructions provided above on the **descriptor predictor model**.  
 
 1. The **descriptor model** processes the `PREDICTION DB` databse (see diagram above) to generate *descriptor input sequences* and saves them in `DESCRIPTOR DB II`. It then predicts subsequent descriptor strings based on that data.
 
