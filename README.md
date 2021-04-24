@@ -77,7 +77,7 @@ The **Neural sequencer** combines an `MFCC` descriptor extraction model with a d
     <img src="https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png" width="60%" height="35%" align="center">
 </p>
 
-### 1. Descriptor Model
+### 1. Descriptor Prediction Model
 
 As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. Four different time-series predictors were implemented as training options: 
 
@@ -95,7 +95,7 @@ You may train the descriptor model using a database containing files in `.wav` f
     python desc/train_function.py --selected_model <1 of 4 models above> --audio_db_dir <path to database> --window_size <input sequence length> --forecast_size <output sequence length> 
 
 
-### 2. Prediction Model
+### 2. Query and Playback engines
 
 1. The prediction database will be processed into **descriptor input (descriptor database II)** for the descriptor model, and the descriptor model will *predict the subsequent descriptors* based on the input.
 2. The audio database will be processed into **descriptor database I** that each descriptor will have *ID reference* back to the audio segment. 
