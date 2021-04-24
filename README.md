@@ -69,9 +69,9 @@ After training **melGAN** and **UNAGAN**, you will have to use the **[UNAGAN gen
 As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there. Four different time-series predictors were implemented as training options: 
 
 - **LSTM** (Hochreiter et al. 1997)
-- **LSTMEncoderDecoderModel** (Cho et al. 2014)
-- **TransformerEncoderOnlyModel**
--  **TransformerModel** (Vaswani et al. 2017)
+- **LSTM encoder-decoder model** (Cho et al. 2014)
+- **Transformer encoder-only model**
+-  **Transformer model** (Vaswani et al. 2017)
 
 Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction models, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequences with specified sequence length. Once you train the model, record the `wandb_run_id` and paste it on the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the RAW generated audio DB and Prediction DB, and run the notebook. The notebook will generate new descriptors from the descriptor model and convert them back into audio.
 
