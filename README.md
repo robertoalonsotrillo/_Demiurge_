@@ -29,7 +29,7 @@ and [direnv](https://direnv.net/).
 3. Type `direnv allow` from within the checkout of this repository. -->
 
 ## INTRODUCTION
-*Demiurge* is a tri-modal neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines UnaGAN plus MelGAN models as a sound generators with a multi-head attention transformer neural network. The diagram below explains the relation between the different elements.
+*Demiurge* is a tri-modal neural network architecture devised to generate and sequence musical sounds in the waveform domain (Donahue et al. 2019). The architecture combines UnaGAN plus MelGAN models as a sound generators with a custom neural sequencer model. The diagram below explains the relation between the different elements.
 
 ![project concept](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Dataflow.png)
 The audio generation and sequencing GAN-based processes work as follows:
@@ -62,7 +62,7 @@ The chart below explains the GAN-based sound generation process. Please bear in 
 
 After the melgan and unagan are trained, go to [unagan generate notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb) and set the melgan_run_id and unagan_run_id. The output wav files will be saved to the output_dir specified in the notebook.
 
-## TRANSFORMER
+## NEURAL SEQUENCER
 
 ### Descriptor Model
 
