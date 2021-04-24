@@ -48,23 +48,23 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ![melgan/unagan workflow](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png)
 
-### melGAN
+### 1. melGAN
 
 **[MELGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. You may track our work through 
 
 <img width="957" alt="melgan" src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png">
 
-### UNAGAN
+### 2. UNAGAN
 
 **[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. 
 
-### Sound generator
+### 3. Sound generator
 
 After training **melGAN** and **UNAGAN**, you will have to use the **[SOUND GENERATOR](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to ouput `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook.
 
 ## NEURAL SEQUENCER
 
-### Descriptor Model
+### 1. Descriptor Model
 
 As outlined above the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor models by selecting a `wandb_run_id` in the **[DESCRIPTOR MODEL](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model following the training instructions below. Four different time-series predictors were implemented as training options: 
 - **LSTM** (Hochreiter et al. 1997)
@@ -91,7 +91,7 @@ To train the descriptor model, run
 The audio database shoulf be audio file in ".wav"
 
 
-### Prediction Model
+### 2. Prediction Model
 
 The prediction workflow can be described in the diagram below:
 ![Demiurge1](https://user-images.githubusercontent.com/68105693/115944060-3f844b00-a4e6-11eb-8ba8-9c6c7f63f61c.png)
