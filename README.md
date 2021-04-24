@@ -66,10 +66,7 @@ After training **melGAN** and **UNAGAN**, you will have to use the **[SOUND GENE
 
 ### Descriptor Model
 
-As outlined above the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor models by selecting a `wandb_run_id` in the [NEURAL SEQUENCER](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), or train your own model following training instructions below.
-
-For the descriptor model, there are 4 models to choose from: "LSTM", "LSTMEncoderDecoderModel", "TransformerEncoderOnlyModel", or "TransformerModel".
-The "LSTM" and "TransformerEncoderOnlyModel" are one step prediction model, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequence with specified sequence length.
+As outlined above the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor models by selecting a `wandb_run_id` in the **[DESCRIPTOR MODEL](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model following the training instructions below. Four different time-series predictors were implemented as training options: **LSTM** (Hochreiter et al. 1997), **LSTMEncoderDecoderModel** (Cho et al. 2014), **TransformerEncoderOnlyModel**, or **TransformerModel** (Vaswani et al. 2017).Both the "LSTM" and "TransformerEncoderOnlyModel" are one step prediction model, while "LSTMEncoderDecoderModel" and "TransformerModel" can predict descriptor sequence with specified sequence length.
 
 After training the model, record the wandb run id and paste it in the [prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb). Then, provide paths to the RAW generated audio DB and Prediction DB, and run the notebook. The notebook will generate new descriptors from the descriptor model and convert them back into audio.
 
