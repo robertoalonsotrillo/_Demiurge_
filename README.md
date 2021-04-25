@@ -55,7 +55,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ### 1. melGAN
 
-**[melGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
+**[melGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/train_notebook/melgan.ipynb).
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png" width="70%" height="30%" align="center">
@@ -63,11 +63,11 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ### 2. UNAGAN
 
-**[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1JEXcGs-zVoAi84e79OO-7_G9qD3ptNwF?usp=sharing).
+**[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/train_notebook/unagan.ipynb).
 
 ### 3. Generator
 
-After training **melGAN** and **UNAGAN**, you will have to use **[UNAGAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb)
+After training **melGAN** and **UNAGAN**, you will have to use **[UNAGAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)
 
 ## SEQUENCER MODEL
 
@@ -79,7 +79,7 @@ The **sequencer model** combines an `MFCC` descriptor extraction model with a de
 
 ### 1. Descriptor Prediction Model
 
-As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor data by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://colab.research.google.com/github/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb), following the instructions found there, to generate `MFCC` `.json` files.
+As outlined above, the **descriptor model** plays a crucial role in the the prediction workflow. You may use pretrained descriptor model by selecting a `wandb_run_id` from the **[descriptor model](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)** or train your own model using this [notebook](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/descriptor_model_train.ipynb), following the instructions found there to train the model with your audio dataset, and obtain `wandb_run_id` for your trained model.
 
 Four different time-series predictors were implemented as training options. Both the "LSTM" and "transformer encoder-only model" are one step prediction models, while "LSTM encoder-decoder model" and "transformer model" can predict descriptor sequences with specified sequence length. 
 
@@ -88,7 +88,7 @@ Four different time-series predictors were implemented as training options. Both
 - **Transformer encoder-only model**
 -  **Transformer model** (Vaswani et al. 2017)
 
-Once you train the model, record the `wandb_run_id` and paste it in the **[prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)**. Then, provide paths to the `RAW generated audio DB` and `Prediction DB` databases and and run the notebook to generate new descriptors. The descriptors genereted from `Prediction DB` will be used as the input of the neural sequencer to predict subsequent descriptors, which will be converted into `.wav` audio files using the **query and playback engines** (see below). To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
+Once you train the model, record the `wandb_run_id` and paste it in the **[prediction notebook](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/descriptor_model_predict.ipynb)**. Then, provide paths to the `RAW generated audio DB` and `Prediction DB` databases and and run the notebook to generate new descriptors. The descriptors genereted from `Prediction DB` will be used as the input of the neural sequencer to predict subsequent descriptors, which will be converted into `.wav` audio files using the **query and playback engines** (see below). To train the model please use the following [notebook](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/descriptor_model_train.ipynb).
 
 #### Training (script alternative)
 
@@ -101,7 +101,7 @@ You may alternatively train the descriptor model using a database containing fil
 
 This is the workflow of the **query and playback engines**, which will translate `MFCC` `.json` files into `.wav` audio files. This workflow partially overlaps with the instructions provided above on the **descriptor predictor model**.  
 
-1. The **descriptor model** processes the `PREDICTION DB` databse (see diagram above) to generate *descriptor input sequences* and saves them in `DESCRIPTOR DB II`. It then predicts subsequent descriptor strings based on that data.
+1. The **descriptor model** processes the `PREDICTION DB` database (see diagram above) to generate *descriptor input sequences* and saves them in `DESCRIPTOR DB II`. It then predicts subsequent descriptor strings based on that data.
 
 2. The model processes the audio database into `DESCRIPTOR DB I` and links each descriptor to an `ID reference` connected to the specific audio segment.
  
@@ -109,7 +109,7 @@ This is the workflow of the **query and playback engines**, which will translate
 
 4. The model combines and merges these segments referenced by the replaced descriptors from the query function into a new `.wav` audio file.
 
-To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
+To train the model please use the following [notebook](https://github.com/buganart/descriptor-transformer/blob/main/train_notebook/descriptor_model_train.ipynb).
 
 
 
