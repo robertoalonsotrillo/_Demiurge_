@@ -65,7 +65,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ### 2. hifi-GAN
 
-**[hifi-GAN](https://github.com/jik876/hifi-gan)** (Bae et al. 2020) is a convolutional non-autoregressive adversarial network that, as mel-GAN, works with mel-spectrograms as a symbolic representation of audio files. The model combines a multi-receptive field fusion (MRF) generator with two different discriminators, introducing multi-period (MPD) and multi-scale (MSD) structures. 
+**[hifi-GAN](https://github.com/jik876/hifi-gan)** (Bae et al. 2020) is a convolutional non-autoregressive adversarial network that, as the mel-GAN, uses mel-spectrograms as a symbolic audio representation. The model combines a multi-receptive field fusion (MRF) generator with two different discriminators, introducing multi-period (MPD) and multi-scale (MSD) structures. 
 
 <p align="center">
      <img width="600" alt="Screenshot 2021-06-08 at 12 51 30" src="https://user-images.githubusercontent.com/68105693/121173292-efc0cf80-c858-11eb-91eb-eb4a6ca29603.png">
