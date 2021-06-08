@@ -29,7 +29,7 @@ and [direnv](https://direnv.net/).
 3. Type `direnv allow` from within the checkout of this repository. -->
 
 ## INTRODUCTION
-*Demiurge* is a tripartite neural network architecture devised to generate and sequence audio waveforms (Donahue et al. 2019). The architecture combines a synthesis engine based on a **UNAGAN** + **melGAN/hifiGAN** model with a custom **transformer-based sequencer**. The diagram below explains the relation between the different elements.
+*Demiurge* is a tripartite neural network architecture devised to generate and sequence audio waveforms (Donahue et al. 2019). The architecture combines a synthesis engine based on a **una-GAN** + **mel-GAN/hifi-GAN** model with a custom **transformer-based sequencer**. The diagram below explains the relation between the different elements.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/121159742-be8dd280-c84b-11eb-996f-bcd68971b201.png" width="70%" height="30%" align="center">
