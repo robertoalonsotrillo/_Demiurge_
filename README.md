@@ -53,6 +53,10 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
     <img src="https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png" width="70%" height="30%" align="center">
 </p>
 
+<p align="center">
+![Demiurge](https://user-images.githubusercontent.com/68105693/121159464-7f5f8180-c84b-11eb-8e59-13a7f357feb7.png)
+</p>
+
 ### 1. melGAN
 
 **[melGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
