@@ -74,7 +74,7 @@ After training **mel-GAN/hifi-GAN** and **una-GAN**, you will have to use **[una
 
 ## SEQUENCER MODEL
 
-The **sequencer model** combines an `MFCC` descriptor extraction model with a descriptor predictor generator and query and playback engines that generate `.wav` audio files out of those `MFCC` `.json` files. The diagram below explains the relation between the different elements of the prediction-transformer-query-playback workflow.
+The **sequencer** combines an `MFCC` descriptor extraction model with a descriptor predictor generator and query and playback engines that generate `.wav` audio files out of those `MFCC` `.json` files. The diagram below explains the relation between the different elements of the prediction-transformer-query-playback workflow.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/115947129-2e443a00-a4f8-11eb-9abb-6503a389a41f.png" width="60%" height="35%" align="center">
