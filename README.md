@@ -61,7 +61,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png" width="70%" height="30%" align="center">
 </p>
-<p align="center"> *Kumar et al. 2019*
+<p align="center"> (Kumar et al. 2019)
 
 ### 2. hifi-GAN
 
@@ -70,7 +70,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 <p align="center">
      <img width="600" alt="Screenshot 2021-06-08 at 12 51 30" src="https://user-images.githubusercontent.com/68105693/121173292-efc0cf80-c858-11eb-91eb-eb4a6ca29603.png">
 </p>
-<p align="center"> *Bae et al. 2020* 
+<p align="center"> (Bae et al. 2020)
     
 ### 3. una-GAN
 
