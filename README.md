@@ -49,8 +49,9 @@ Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track 
 
 The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **mel-GAN / hifi-GAN** and **una-GAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
+
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/68105693/121171334-a96a7100-c856-11eb-9f4e-19cdafba2921.png" width="50%" height="30%" align="center">
+    <img src="https://user-images.githubusercontent.com/68105693/121171334-a96a7100-c856-11eb-9f4e-19cdafba2921.png" width="35%" height="20%" align="center">
 </p>
 
 ### 1. mel-GAN
@@ -60,13 +61,20 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png" width="70%" height="30%" align="center">
 </p>
+<p align="center"> *Kumar et al. 2019*
 
 ### 2. hifi-GAN
 
+**[hifi-GAN](https://github.com/jik876/hifi-gan)** (Bae et al. 2020) is a convolutional non-autoregressive adversarial network that, as mel-GAN, works with mel-spectrograms as a symbolic representation of audio files. The model combines a multi-receptive field fusion (MRF) generator with two different discriminators, introducing multi-period (MPD) and multi-scale (MSD) structures. 
 
+<p align="center">
+     <img width="600" alt="Screenshot 2021-06-08 at 12 51 30" src="https://user-images.githubusercontent.com/68105693/121173292-efc0cf80-c858-11eb-91eb-eb4a6ca29603.png">
+</p>
+<p align="center"> *Bae et al. 2020* 
+    
 ### 3. una-GAN
 
-**[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1JEXcGs-zVoAi84e79OO-7_G9qD3ptNwF?usp=sharing).
+**[una-GAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1JEXcGs-zVoAi84e79OO-7_G9qD3ptNwF?usp=sharing).
 
 ### 4. Generator
 
