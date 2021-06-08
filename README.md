@@ -47,7 +47,7 @@ Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track 
 
 ## SYNTHESIS ENGINE (mel-GAN/hifi-GAN + una-GAN)
 
-The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **melGAN** and **UNAGAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
+The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **mel-GAN** and **una-GAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
 <p align="center">
     <img src="https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png" width="70%" height="30%" align="center">
