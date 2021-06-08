@@ -50,7 +50,7 @@ Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track 
 The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **mel-GAN / hifi-GAN** and **una-GAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
 <p align="center">
-     <img src="https://user-images.githubusercontent.com/68105693/121171231-863fc180-c856-11eb-871d-d07fef7b621c.png" width="70%" height="30%" align="center">
+    <img src="https://user-images.githubusercontent.com/68105693/121171334-a96a7100-c856-11eb-9f4e-19cdafba2921.png" width="70%" height="30%" align="center">
 </p>
 
 ### 1. mel-GAN
