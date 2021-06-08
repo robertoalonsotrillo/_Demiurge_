@@ -78,7 +78,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
 
 ### 4. Generator
 
-After training **mel-GAN/hifi-GAN** and **una-GAN**, you will have to use **[una-GAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb). The table below provides a selection of our best `wandb_run_ids` that may be used to run **una-GAN generate**.
+After training **mel-GAN/hifi-GAN** and **una-GAN**, you will have to use **[una-GAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` or `hifi_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb). The table below provides a selection of our best `wandb_run_ids` that may be used to run **una-GAN generate**.
 
 ## SEQUENCER MODEL
 
