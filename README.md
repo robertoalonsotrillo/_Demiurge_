@@ -45,7 +45,7 @@ Audio generation and sequencing neural-network-based processes work as follows:
 
 Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track and monitor training.
 
-## SYNTHESIS ENGINE (melGAN/higiGAN + unaGAN)
+## SYNTHESIS ENGINE (melGAN/hifiGAN + unaGAN)
 
 The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **melGAN** and **UNAGAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
