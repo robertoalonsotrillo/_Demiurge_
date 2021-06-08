@@ -32,16 +32,12 @@ and [direnv](https://direnv.net/).
 *Demiurge* is a tripartite neural network architecture devised to generate and sequence audio waveforms (Donahue et al. 2019). The architecture combines a synthesis engine based on a **UNAGAN** + **melGAN/hifiGAN** model with a custom **transformer-based sequencer**. The diagram below explains the relation between the different elements.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/68105693/115943995-d0a6f200-a4e5-11eb-8a22-66212b2c315f.png" width="70%" height="30%" align="center">
-</p>
-
-<p align="center">
-![Demiurge](https://user-images.githubusercontent.com/68105693/121159595-9aca8c80-c84b-11eb-99a9-c42f8150b228.png)
+    <img src="https://user-images.githubusercontent.com/68105693/121159742-be8dd280-c84b-11eb-996f-bcd68971b201.png" width="70%" height="30%" align="center">
 </p>
 
 Audio generation and sequencing neural-network-based processes work as follows:
 
-1. Modified versions of **[melGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) or **[hifiGAN](https://github.com/jik876/hifi-gan)** and **[unaGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
+1. Modified versions of **[mel-GAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) or **[hifi-GAN](https://github.com/jik876/hifi-gan)** and **[unaGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
 
 2. The **descriptor model** in the **[neural sequencer](https://github.com/buganart/descriptor-transformer)** extracts a series of Los Mel Frequency Cepstral Coeﬃcients `MFCC` strings `.json` from the audio files in the `PREDICTOR DB` while the **predictor**, a time-series prediction model, generates projected descriptor sequences based on that data. 
 
@@ -49,7 +45,7 @@ Audio generation and sequencing neural-network-based processes work as follows:
 
 Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track and monitor training.
 
-## SYNTHESIS ENGINE (melGAN/hifiGAN + unaGAN)
+## SYNTHESIS ENGINE (mel-GAN/hifi-GAN + una-GAN)
 
 The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **melGAN** and **UNAGAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
@@ -57,11 +53,7 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
     <img src="https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png" width="70%" height="30%" align="center">
 </p>
 
-<p align="center">
-![Demiurge](https://user-images.githubusercontent.com/68105693/121159464-7f5f8180-c84b-11eb-8e59-13a7f357feb7.png)
-</p>
-
-### 1. melGAN
+### 1. mel-GAN
 
 **[melGAN](https://github.com/buganart/melgan-neurips)**  (Kumar et al. 2019) is a fully convolutional non-autoregressive feed-forward adversarial network that uses mel-spectrograms as a lower-resolution audio representation model that can be both efficiently computed from and inverted back to raw audio format. An average melGAN run on [Google Colab](https://colab.research.google.com/) using a single V100 GPU may need a week to produce satisfactory results. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1xUrh2pNUBTMO4s4YPsxAbUdTdlHjTeVU?usp=sharing).
 
@@ -69,16 +61,16 @@ The chart below explains the GAN-based sound synthesis process. Please bear in m
     <img src="https://user-images.githubusercontent.com/68105693/115818429-53b94100-a42f-11eb-9cb5-1c6c20ba5243.png" width="70%" height="30%" align="center">
 </p>
 
-### 2. hifiGAN
+### 2. hifi-GAN
 
 
-### 3. UNAGAN
+### 3. una-GAN
 
 **[UNAGAN](https://github.com/buganart/unagan)** (Liu et al. 2019) is an auto-regressive unconditional sound generating boundary-equilibrium GAN (Berthelot et al. 2017) that takes variable-length sequences of noise vectors to produce variable-length mel-spectrograms. A first UNAGAN model was eventually revised by Liu et al. at [Academia Sinica](https://musicai.citi.sinica.edu.tw) to improve the resultant audio quality by introducing in the generator a hierarchical architecture  model and circle regularization to avoid mode collapse. The model produces satisfactory results after 2 days of training on a single V100 GPU. The results obtained using a multi-GPU approach with parallel data vary. To train the model please use the following [notebook](https://colab.research.google.com/drive/1JEXcGs-zVoAi84e79OO-7_G9qD3ptNwF?usp=sharing).
 
 ### 3. Generator
 
-After training **melGAN/hifiGAN** and **UNAGAN**, you will have to use **[UNAGAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb)
+After training **me-lGAN/hifi-GAN** and **una-GAN**, you will have to use **[una-GAN generate](https://github.com/buganart/descriptor-transformer/blob/main/predict_notebook/Unagan_generate.ipynb)** to output `.wav` audio files. Please set the `melgan_run_id` and `unagan_run_id` created in the previous training steps. The output `.wav` files will be saved to the `output_dir` specified in the notebook. To train the model please use the following [notebook](https://colab.research.google.com/github/buganart/unagan/blob/master/Unagan_generate.ipynb)
 
 ## SEQUENCER MODEL
 
