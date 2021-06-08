@@ -29,7 +29,7 @@ and [direnv](https://direnv.net/).
 3. Type `direnv allow` from within the checkout of this repository. -->
 
 ## INTRODUCTION
-*Demiurge* is a tripartite neural network architecture devised to generate and sequence audio waveforms (Donahue et al. 2019). The architecture combines a synthesis engine based on a **una-GAN** + **mel-GAN/hifi-GAN** model with a custom **transformer-based sequencer**. The diagram below explains the relation between the different elements.
+*Demiurge* is a tripartite neural network architecture devised to generate and sequence audio waveforms (Donahue et al. 2019). The architecture combines a synthesis engine based on a **una-GAN** + **mel-GAN / hifi-GAN** model with a custom **transformer-based sequencer**. The diagram below explains the relation between the different elements.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/68105693/121159742-be8dd280-c84b-11eb-996f-bcd68971b201.png" width="70%" height="30%" align="center">
@@ -37,7 +37,7 @@ and [direnv](https://direnv.net/).
 
 Audio generation and sequencing neural-network-based processes work as follows:
 
-1. Modified versions of **[mel-GAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) or **[hifi-GAN](https://github.com/jik876/hifi-gan)** and **[unaGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
+1. Modified versions of **[mel-GAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) or **[hifi-GAN](https://github.com/jik876/hifi-gan)** and **[una-GAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
 
 2. The **descriptor model** in the **[neural sequencer](https://github.com/buganart/descriptor-transformer)** extracts a series of Los Mel Frequency Cepstral Coeﬃcients `MFCC` strings `.json` from the audio files in the `PREDICTOR DB` while the **predictor**, a time-series prediction model, generates projected descriptor sequences based on that data. 
 
@@ -45,9 +45,9 @@ Audio generation and sequencing neural-network-based processes work as follows:
 
 Please bear in mind that our model uses **[WandB](https://wandb.ai/)** to track and monitor training.
 
-## SYNTHESIS ENGINE (mel-GAN/hifi-GAN + una-GAN)
+## SYNTHESIS ENGINE (mel-GAN / hifi-GAN + una-GAN)
 
-The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **mel-GAN** and **una-GAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
+The chart below explains the GAN-based sound synthesis process. Please bear in mind that for ideal results the **mel-GAN / hifi-GAN** and **una-GAN** audio databases should be the same. Cross-feeding between different databases generates unpredictable (although sometimes musically interesting) results. Please record the `wandb_run_ids` for the final sound generation process. 
 
 <p align="center">
     <img src="https://github.com/robertoalonsotrillo/descriptor-transformer/blob/main/_static/img/Demiurge.png" width="70%" height="30%" align="center">
