@@ -35,6 +35,10 @@ and [direnv](https://direnv.net/).
     <img src="https://user-images.githubusercontent.com/68105693/115943995-d0a6f200-a4e5-11eb-8a22-66212b2c315f.png" width="70%" height="30%" align="center">
 </p>
 
+<p align="center">
+![Demiurge](https://user-images.githubusercontent.com/68105693/121159595-9aca8c80-c84b-11eb-99a9-c42f8150b228.png)
+</p>
+
 Audio generation and sequencing neural-network-based processes work as follows:
 
 1. Modified versions of **[melGAN](https://github.com/buganart/melgan-neurips)** (a vocoder that is a convolutional non-autoregressive feed-forward adversarial network ) or **[hifiGAN](https://github.com/jik876/hifi-gan)** and **[unaGAN](https://github.com/buganart/unagan)** (an auto-regressive unconditional sound generating boundary-equilibrium GAN) will first process audio files `.wav` from an original database `RECORDED AUDIO DB` to produce GAN-generated `.wav` sound files, which are compiled into a new database `RAW GENERATED AUDIO DB`. 
